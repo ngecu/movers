@@ -152,15 +152,7 @@
  
           
           <li class="nav-header">TRANSPORT</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Goods Transported
-              
-              </p>
-            </a>
-          </li>
+        
           <li class="nav-item">
             <a href="./transport_orders.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

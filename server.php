@@ -10,6 +10,7 @@ $errors = array();
 // connect to the database
 $db = mysqli_connect('localhost', 'root', '', 'movers_db');
 
+
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
@@ -180,6 +181,7 @@ if (isset($_POST['reg_farmer'])) {
       header('location: index.php');
   }
 }
+
 // REGISTER LOADER
 if (isset($_POST['reg_loader'])) {
   // receive all input values from the form
@@ -216,6 +218,66 @@ if (isset($_POST['reg_loader'])) {
   }
 }
 
+
+// REGISTER Order
+if (isset($_POST['reg_order'])) {
+  // receive all input values from the form
+  $farmer_pk = mysqli_real_escape_string($db, $_POST['farmer_pk']);
+  $group_pk = mysqli_real_escape_string($db, $_POST['group_pk']);
+  $driver_pk = mysqli_real_escape_string($db, $_POST['driver_pk']);
+  $loader_pk = mysqli_real_escape_string($db, $_POST['loader_pk']);
+
+
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($driver_pk)) { array_push($errors, "Driver Name is required"); }
+  if (empty($loader_pk)) { array_push($errors, "Loader is required"); }
+
+  
+  // Finally, register vehicle if there are no errors in the form
+  if (count($errors) == 0) {
+   
+
+      $query = "INSERT INTO order_transport (farmer_pk,group_pk,driver_pk,loader_pk) 
+                VALUES('$farmer_pk','$group_pk','$driver_pk','$loader_pk')";
+
+      mysqli_query($db, $query);
+      $_SESSION['order'] = $farmer_pk;
+      $_SESSION['success'] = "Added Successfully";
+      // echo "loader pk is".$loader_pk;
+      header('location: ./index.php');
+  }
+}
+
+
+
+if (isset($_POST['reg_offence'])) {
+  // receive all input values from the form
+  $driver_pk = mysqli_real_escape_string($db, $_POST['driver_pk']);
+  $offenceSummary = mysqli_real_escape_string($db, $_POST['offenceSummary']);
+
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($driver_pk)) { array_push($errors, "Driver Name is required"); }
+  if (empty($offenceSummary)) { array_push($errors, "Offence Summary is required"); }
+
+  
+  // Finally, register vehicle if there are no errors in the form
+  if (count($errors) == 0) {
+   
+
+      $query = "INSERT INTO offence (summary,driver_pk) 
+                VALUES('$offenceSummary','$driver_pk')";
+
+      mysqli_query($db, $query);
+      $_SESSION['order'] = $driver_pk;
+      $_SESSION['success'] = "Added Successfully";
+      // echo "loader pk is".$loader_pk;
+      header('location: ./index.php');
+  }
+}
 // REGISTER GROUP
 if (isset($_POST['reg_group'])) {
   // receive all input values from the form

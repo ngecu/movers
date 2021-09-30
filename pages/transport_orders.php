@@ -1,16 +1,5 @@
-<?php 
-  session_start(); 
 
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-?>
+<?php include('../server.php') ?>
 
 
 
@@ -81,7 +70,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1></h1>
+            <h1>Order Transport Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -95,6 +84,76 @@
     </section>
 
     <section>
+
+    <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Order List</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+            <form action="transport_orders.php" method="post">
+  <div class="form-row">
+ 
+  <div class="form-group col-md-6">
+    <label for="exampleFormControlSelect1">Farmer</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="farmer_pk">
+      <option value="" > </option>
+    <?php
+        $result = mysqli_query($db,"select * from farmer"); // fetch data from database
+
+          while($row = mysqli_fetch_array($result)) {
+            echo '<option value='.$row['farmer_pk'].'>'.$row['namr'].'</option>';
+          }
+        ?> 
+    </select>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="exampleFormControlSelect1">Group</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="group_pk">
+      <option value="" > </option>
+    <?php
+        $result = mysqli_query($db,"select * from groupp"); // fetch data from database
+
+          while($row = mysqli_fetch_array($result)) {
+            echo '<option value='.$row['group_pk'].'>'.$row['group_name'].'</option>';
+          }
+        ?> 
+    </select>
+  </div>
+
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlSelect1">Driver</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="driver_pk">
+      <option value="" > </option>
+    <?php
+        $result = mysqli_query($db,"select * from driver INNER JOIN vehicle AS vehicle ON vehicle.vehicle_pk = driver.vehicle_pk"); // fetch data from database
+
+          while($row = mysqli_fetch_array($result)) {
+            echo '<option value='.$row['driver_pk'].'>'.$row['name'].'</option>';
+          }
+        ?> 
+    </select>  </div>
+    <div class="form-group">
+    <label for="exampleFormControlSelect2">Loaders</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="loader_pk">
+    <option value="" > </option>
+    <?php
+        $result = mysqli_query($db,"select * from loader"); // fetch data from database
+
+          while($row = mysqli_fetch_array($result)) {
+            echo '<option value='.$row['loader_pk'].'>'.$row['loader_name'].'</option>';
+          }
+        ?> 
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" name="reg_order">Submit</button>
+</form>
+</div>
+</div>
+
+
     <div class="card">
             <div class="card-header">
               <h3 class="card-title">Order List</h3>
@@ -107,37 +166,68 @@
                     <th> Order Date </th>
                   <th>Group</th>
                   <th>Famer </th>
-                  <th>Order Date</th>
+                  <th>Driver</th>
+                  <th>Loaders</th>
+                  <th>Status</th>
+
+                  <th>Total Expenditure</th>
+                  <th>Total Revenue</th>
+                  <th>Profit</th>
               
                 </tr>
 
               
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Henry B</td>
-                  <td>Pick-up
-                  </td>
-                  <td>200</td>
-                </tr>
+                <?php
 
-                <tr>
-                    <th>  </th>
-                  <th></th>
-                  <th>
 
-                  </th>
-                  <th>New Order </th>
-              
-                </tr>
-                
+$records = mysqli_query($db,"select * from order_transport 
+INNER JOIN groupp AS groupp ON groupp.group_pk = order_transport.group_pk 
+INNER JOIN farmer AS farmer ON farmer.farmer_pk = order_transport.farmer_pk 
+INNER JOIN driver AS driver ON driver.driver_pk = order_transport.driver_pk
+INNER JOIN loader AS loader ON loader.loader_pk = order_transport.loader_pk
+INNER JOIN vehicle AS vehicle ON vehicle.vehicle_pk =  driver.vehicle_pk
+
+"); // fetch data from database
+                              // SELECT `farmer_pk`, `namr`, `group_pk`, `farmer_type`, `reg_time` FROM `farmer` WHERE 1
+
+while($data = mysqli_fetch_array($records))
+{
+?>
+  <tr>
+    <td><?php echo $data['reg_time']; ?></td>
+    <td><?php echo $data['group_name']; ?></td>
+    <td><?php echo $data['namr']; ?></td>
+    <td><?php echo $data['name']; ?></td>
+    <td><?php echo $data['loader_name']; ?></td>
+    
+    <td>Active</td>
+
+    <td><?php echo $data['trip_driver_per_trip']. '+' .($data['amount_per_loader']*$data['number_of_loaders']). ' =  '.$data['trip_driver_per_trip']+($data['amount_per_loader']*$data['number_of_loaders']); ?>  </td>
+    <td><?php echo ($data['transport_cost']*$data['load_capacity']); ?>  </td>
+    <td><?php echo (($data['transport_cost']*$data['load_capacity']) - ($data['trip_driver_per_trip']+($data['amount_per_loader']*$data['number_of_loaders']))); ?>  </td>
+
+
+  </tr>	
+<?php
+}
+?>               
                 </tbody>
                 <tfoot>
                 <tr>
-                <th> Order Date </th>
+                    <th> Order Date </th>
                   <th>Group</th>
                   <th>Famer </th>
-                  <th>Order Date</th>
+                  <th>Driver</th>
+                  <th>Loaders</th>
+                  <th>Status</th>
+
+                  <th>Total Expenditure</th>
+                  <th>Total Revenue</th>
+                  <th>Profit</th>
+
+              
                 </tr>
                 </tfoot>
               </table>

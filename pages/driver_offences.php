@@ -88,7 +88,7 @@
 
             </div>
             <div class="card-body">
-            <form>
+            <form action="driver_offences.php" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Summary</label>
@@ -96,7 +96,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Driver</label>
-      <select id="club" class="form-control" name="vehicle_pk">
+      <select id="club" class="form-control" name="driver_pk">
           <option value = ""></option>
         <?php
         $result = mysqli_query($db,"select * from driver"); // fetch data from database
@@ -108,7 +108,7 @@
         </select>    </div>
   </div>
  
-  <button type="submit" class="btn btn-primary">Add In</button>
+  <button type="submit" class="btn btn-primary" name="reg_offence">Add In</button>
 </form>
             </div>
         </div>
@@ -140,14 +140,10 @@ while($data = mysqli_fetch_array($records))
 {
 ?>
   <tr>
+    <td><?php echo $data['summary']; ?></td>
     <td><?php echo $data['name']; ?></td>
+    <td><?php echo $data['reg_time']; ?></td>
     <td><?php echo $data['status']; ?></td>
-    <td><?php echo $data['vehicle_name']; ?></td>
-    <td><?php echo $data['trip_driver_per_trip']; ?> Kshs</td>
-    <td><?php echo $data['offence_count']; ?></td>
-
-   
-
   </tr>	
 <?php
 }
