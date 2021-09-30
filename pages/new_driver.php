@@ -1,18 +1,4 @@
-<?php 
-  session_start(); 
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-?>
-
-
+<?php include('../server.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -65,37 +51,13 @@
       <a href="#" class="nav-link"> <div id="time_span"></div></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link"></a>
+        <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
  
-    <ul class="navbar-nav ml-auto">    
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item"></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <!-- <span class="badge badge-warning navbar-badge"></span> -->
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">User Details</span>
-          <div class="dropdown-divider"></div>
-          <a href="./account.php" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> Account
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> Log Out
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
 
-        </div>
-      </li>
-   
-    </ul>
     <!-- Right navbar links -->
   
   </nav>
@@ -130,7 +92,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="./index.php" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -140,7 +102,7 @@
            
           </li>
           <li class="nav-item">
-            <a href="./membership.php" class="nav-link">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Membership
@@ -151,7 +113,7 @@
 
           <li class="nav-header">EMPLOYEES</li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Loaders 
@@ -161,13 +123,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./loaders.php" class="nav-link">
+                <a href="pages/layout/top-nav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Loaders List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./new_loader.php" class="nav-link">
+                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Register New Loader</p>
                 </a>
@@ -176,35 +138,9 @@
             </ul>
             
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Farmers 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./farmers.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Farmer List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./new_farmer.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Farmer</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Drivers 
@@ -214,19 +150,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./drivers.php" class="nav-link">
+                <a href="pages/layout/top-nav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Drivers List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./driver_offences.php" class="nav-link">
+                <a href="pages/layout/top-nav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Drivers Offenses</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./new_driver.php" class="nav-link">
+                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Register New Driver</p>
                 </a>
@@ -235,40 +171,12 @@
             </ul>
             
           </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Groups 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./drivers.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Group List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./new_driver.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Group</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
-          
           
  
           
           <li class="nav-header">TRANSPORT</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Goods Transported
@@ -277,7 +185,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="./transport_orders.php" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Transport Orders
@@ -288,7 +196,7 @@
 
           <li class="nav-header">VEHICLES</li>
           <li class="nav-item">
-            <a href="./vehicles.php" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 All Vehicles
@@ -297,7 +205,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="./expenses.php" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Expenses
@@ -308,7 +216,7 @@
         
           <li class="nav-header">FINANCE</li>
           <li class="nav-item">
-            <a href="./expenses.php" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 All Expense
@@ -317,7 +225,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="./revenue.php" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  All Revenue
@@ -325,8 +233,27 @@
               </p>
             </a>
           </li>
+        
+          <li class="nav-header">USER</li>
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Account
+              
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="index.php?logout='1'" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+            logout
+              </p>
+            </a>
+          </li>
+ 
 
-      
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -347,157 +274,66 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Driver</li>
             </ol>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>Farmers</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="./farmers.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Drivers</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="./drivers.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>Loaders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="./loaders.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Groups</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="./groups.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
-
-        <div class="row">
-   
-
- 
-      </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <!-- Default box -->
-         
+    <section>
+    <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">New Driver</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="new_driver.php" method="post">
+              <?php include('../errors.php'); ?>
+              <div class="card-body">
+                  <div class="form-group">
+                    <label for="driverName">Driver Name</label>
+                    <input type="text" class="form-control" id="driverName" name="driverName" placeholder="Enter Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Assign Vehicle</label>
+
+                    <select id="club" class="form-control" name="vehicle_pk">
+          <option value = ""></option>
+        <?php
+        $result = mysqli_query($db,"select * from vehicle"); // fetch data from database
+
+          while($row = mysqli_fetch_array($result)) {
+            echo '<option value='.$row['vehicle_pk'].'>'.$row['vehicle_name'].'</option>';
+          }
+        ?> 
+        </select>
+
+               </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                <button type="submit" class="btn btn-primary" name="reg_driver">Register Driver</button>
+
+                </div>
+              </form>
+            </div>
             <!-- /.card -->
-          </div>
-        </div>
-      </div>
 
-      <div class="content">
-  	<!-- notification message -->
-  	<?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
-      	<h3>
-          <?php 
-          	echo $_SESSION['success']; 
-          	unset($_SESSION['success']);
-          ?>
-      	</h3>
-      </div>
-  	<?php endif ?>
-
-    <!-- logged in user information -->
-    <div class="text-center">
-    <?php  if (isset($_SESSION['username'])) : ?>
-    	<h1>Welcome <?php echo $_SESSION['username']; ?></h1>
-      <p>Where Do You Want To Start? </p>
-    </div>
-
-
-      <div class="row">
-
-        <div class="-lg-4 col-4" >
-
-        <div class="card" >
-  <img class="card-img-top" style="height:200px" src="..\resources\undraw_financial_data_es63.png" alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">Compnay Finance</p>
-  </div>
-</div>
-
+          <!--/.col (right) -->
         </div>
 
-        <div class="-lg-4 col-4">
 
-<div class="card">
-<img class="card-img-top" style="height:200px" src="..\resources\undraw_by_my_car_ttge.png" alt="Card image cap">
-<div class="card-body">
-<p class="card-text">Company Drivers</p>
-</div>
-</div>
 
-</div>
+  
 
-<div class="-lg-4 col-4">
-
-<div class="card">
-<img class="card-img-top" style="height:200px" src="..\resources\undraw_Team_page_re_cffb.png" alt="Card image cap">
-<div class="card-body">
-<p class="card-text">Goup Membership</p>
-</div>
-</div>
-
-</div>
-
-      </div>
-    	<p>  </p>
-    <?php endif ?>
-
-</div>
-		
-
-    </section>
+</section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -526,6 +362,25 @@
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
+<script src="../plugins/datatables/jquery.dataTables.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
+
 
 <script>
   var today = new Date();

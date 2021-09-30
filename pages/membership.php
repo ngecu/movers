@@ -106,7 +106,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="./index.php" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -116,7 +116,7 @@
            
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Membership
@@ -288,166 +288,26 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Membership</li>
             </ol>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>Farmers</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Drivers</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>Loaders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Groups</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
-
-        <div class="row">
-   
-
- 
-      </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <!-- Default box -->
-         
-            <!-- /.card -->
-          </div>
-        </div>
-      </div>
-
-      <div class="content">
-  	<!-- notification message -->
-  	<?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
-      	<h3>
-          <?php 
-          	echo $_SESSION['success']; 
-          	unset($_SESSION['success']);
-          ?>
-      	</h3>
-      </div>
-  	<?php endif ?>
-
-    <!-- logged in user information -->
-    <div class="text-center">
-    <?php  if (isset($_SESSION['username'])) : ?>
-    	<h1>Welcome <?php echo $_SESSION['username']; ?></h1>
-      <p>Where Do You Want To Start? </p>
-    </div>
-
-
-      <div class="row">
-
-        <div class="-lg-4 col-4" >
-
-        <div class="card" >
-  <img class="card-img-top" style="height:200px" src="..\resources\undraw_financial_data_es63.png" alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">Compnay Finance</p>
-  </div>
-</div>
-
-        </div>
-
-        <div class="-lg-4 col-4">
-
-<div class="card">
-<img class="card-img-top" style="height:200px" src="..\resources\undraw_by_my_car_ttge.png" alt="Card image cap">
-<div class="card-body">
-<p class="card-text">Company Drivers</p>
-</div>
-</div>
-
-</div>
-
-<div class="-lg-4 col-4">
-
-<div class="card">
-<img class="card-img-top" style="height:200px" src="..\resources\undraw_Team_page_re_cffb.png" alt="Card image cap">
-<div class="card-body">
-<p class="card-text">Goup Membership</p>
-</div>
-</div>
-
-</div>
-
-      </div>
-    	<p>  </p>
-    <?php endif ?>
     
-</div>
-		
-
-    </section>
+<section>
+  
+</section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.2
+      <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    <strong>Copyright &copy; <a href="https://devngecu.herokuapp.com/">Dev Ngecu</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -467,6 +327,25 @@
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
+<script src="../plugins/datatables/jquery.dataTables.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
+
 
 <script>
   var today = new Date();
