@@ -55,50 +55,7 @@
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-      <a href="#" class="nav-link"> <div id="time_span"></div></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link"></a>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
- 
-    <ul class="navbar-nav ml-auto">    
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item"></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <!-- <span class="badge badge-warning navbar-badge"></span> -->
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">User Details</span>
-          <div class="dropdown-divider"></div>
-          <a href="./account.php" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> Account
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> Log Out
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-
-        </div>
-      </li>
-   
-    </ul>
-    <!-- Right navbar links -->
-  
-  </nav>
+  <?php include '../components/topbar.php'; ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -113,224 +70,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"><?php echo $_SESSION['username']; ?></a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-           
-          </li>
-          <li class="nav-item">
-            <a href="./membership.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Membership
-              
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-header">EMPLOYEES</li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Loaders 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./loaders.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Loaders List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./new_loader.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Loader</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Farmers 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./farmers.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Farmer List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./new_farmer.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Farmer</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Drivers 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./drivers.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Drivers List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./driver_offences.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Drivers Offenses</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./new_driver.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Driver</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Groups 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./drivers.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Group List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./new_driver.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Group</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
-          
-          
- 
-          
-          <li class="nav-header">TRANSPORT</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Goods Transported
-              
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./transport_orders.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 Transport Orders
-              
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-header">VEHICLES</li>
-          <li class="nav-item">
-            <a href="./vehicles.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                All Vehicles
-              
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./expenses.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 Expenses
-              
-              </p>
-            </a>
-          </li>
-        
-          <li class="nav-header">FINANCE</li>
-          <li class="nav-item">
-            <a href="./expenses.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                All Expense
-              
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./revenue.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 All Revenue
-              
-              </p>
-            </a>
-          </li>
-
-      
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
+    <?php include '../components/sidebar.php'; ?>
     <!-- /.sidebar -->
   </aside>
 
@@ -341,7 +81,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1></h1>
+            <h1>Dashboard</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -357,7 +97,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+
+
+                <h3>150 </h3>
 
                 <p>Farmers</p>
               </div>

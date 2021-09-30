@@ -144,7 +144,118 @@ if (isset($_POST['reg_driver'])) {
   }
 }
 
-// ... 
+// REGISTER FARMER
+if (isset($_POST['reg_farmer'])) {
+  // receive all input values from the form
+  $farmer_name = mysqli_real_escape_string($db, $_POST['farmerName']);
+  $farmer_type = mysqli_real_escape_string($db, $_POST['farmerType']);
+  $group_pk = mysqli_real_escape_string($db, $_POST['group_pk']);
+
+
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($farmer_name)) { array_push($errors, "Driver Name is required"); }
+  if (empty($group_pk)) { array_push($errors, "Group is required"); }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $farmer_check_query = "SELECT * FROM farmer WHERE namr='$farmer_name' LIMIT 1";
+  $result = mysqli_query($db, $farmer_check_query);
+  $farmer = mysqli_fetch_assoc($result);
+  
+  if ($farmer) { // if vehicle exists
+      array_push($errors, "Farmer already exists");
+  }
+
+  // Finally, register vehicle if there are no errors in the form
+  if (count($errors) == 0) {
+   
+
+      $query = "INSERT INTO farmer (namr, group_pk, farmer_type) 
+                VALUES('$farmer_name', '$group_pk', '$farmer_type')";
+      mysqli_query($db, $query);
+      $_SESSION['driver'] = $farmer_name;
+      $_SESSION['success'] = "Added Successfully";
+      header('location: index.php');
+  }
+}
+// REGISTER LOADER
+if (isset($_POST['reg_loader'])) {
+  // receive all input values from the form
+  $loader_name = mysqli_real_escape_string($db, $_POST['loaderName']);
+  $vehicle_pk = mysqli_real_escape_string($db, $_POST['vehicle_pk']);
+
+
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($loader_name)) { array_push($errors, "Loader Name is required"); }
+  if (empty($vehicle_pk)) { array_push($errors, "Vehicle is required"); }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $loader_check_query = "SELECT * FROM loader WHERE namr='$loader_name' LIMIT 1";
+  $result = mysqli_query($db, $loader_check_query);
+  $loader = mysqli_fetch_assoc($result);
+  
+  if ($loader) { // if loader exists
+      array_push($errors, "Loader already exists");
+  }
+
+  // Finally, register vehicle if there are no errors in the form
+  if (count($errors) == 0) {
+   
+
+      $query = "INSERT INTO loader (namr,vehicle_pk) 
+                VALUES('$loader_name','$vehicle_pk')";
+      mysqli_query($db, $query);
+      $_SESSION['loader'] = $loader_name;
+      $_SESSION['success'] = "Added Successfully";
+      header('location: ./index.php');
+  }
+}
+
+// REGISTER GROUP
+if (isset($_POST['reg_group'])) {
+  // receive all input values from the form
+  $group_name = mysqli_real_escape_string($db, $_POST['groupName']);
+  $group_location = mysqli_real_escape_string($db, $_POST['groupLocation']);
+  $nature_of_goods = mysqli_real_escape_string($db, $_POST['groupNature']);
+
+
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($group_name)) { array_push($errors, "Group Name is required"); }
+  if (empty($group_location)) { array_push($errors, "Location is required"); }
+  if (empty($nature_of_goods)) { array_push($errors, "Goods Description is required"); }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $group_check_query = "SELECT * FROM groupp WHERE name='$group_name' LIMIT 1";
+  $result = mysqli_query($db, $group_check_query);
+  $group = mysqli_fetch_assoc($result);
+  
+  if ($group) { // if vehicle exists
+      array_push($errors, "Group already exists");
+  }
+
+  // Finally, register vehicle if there are no errors in the form
+  if (count($errors) == 0) {
+   
+
+      $query = "INSERT INTO groupp (name, location, nature_of_goods) 
+                VALUES('$group_name', '$group_location', '$nature_of_goods')";
+
+// "INSERT INTO `groupp`(`name`, `location`, `nature_of_goods`) VALUES ('$group_name','$group_location','[value-3]','[value-4]')
+      mysqli_query($db, $query);
+      $_SESSION['group'] = $group_name;
+      $_SESSION['success'] = "Added Successfully";
+      // echo 'Name '.$group_name .' Location:'.$group_location. ' Nature '.$nature_of_goods;
+      header('location: index.php');
+  }
+}
 
 // ... 
 

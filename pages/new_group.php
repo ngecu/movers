@@ -73,7 +73,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             
-              <li class="breadcrumb-item active">Driver</li>
+              <li class="breadcrumb-item active">Group</li>
             </ol>
           </div>
         </div>
@@ -87,38 +87,30 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">New Driver</h3>
+                <h3 class="card-title">New Group</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="new_driver.php" method="post">
+              <form action="new_group.php" method="post">
               <?php include('../errors.php'); ?>
               <div class="card-body">
                   <div class="form-group">
-                    <label for="driverName">Driver Name</label>
-                    <input type="text" class="form-control" id="driverName" name="driverName" placeholder="Enter Name">
+                    <label for="groupName">Group Name</label>
+                    <input type="text" class="form-control" id="groupName" name="groupName">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Assign Vehicle</label>
-
-                    <select id="club" class="form-control" name="vehicle_pk">
-          <option value = ""></option>
-        <?php
-        $result = mysqli_query($db,"select * from vehicle"); // fetch data from database
-
-          while($row = mysqli_fetch_array($result)) {
-            echo '<option value='.$row['vehicle_pk'].'>'.$row['vehicle_name'].'</option>';
-          }
-        ?> 
-        </select>
-
+                    <label for="exampleInputEmail1">Location</label>
+                    <input type="text" class="form-control" id="groupLocation" name="groupLocation">
                </div>
-
+               <div class="form-group">
+                    <label for="exampleInputEmail1">Nature Of Goods</label>
+                    <input type="text" class="form-control" id="groupNature" name="groupNature">
+               </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="reg_driver">Register Driver</button>
+                <button type="submit" class="btn btn-primary" name="reg_group">Register Group</button>
 
                 </div>
               </form>

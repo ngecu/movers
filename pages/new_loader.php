@@ -1,18 +1,4 @@
-<?php 
-  session_start(); 
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-?>
-
-
+<?php include('../server.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -55,26 +41,7 @@
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-      <a href="#" class="nav-link"> <div id="time_span"></div></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
- 
-
-    <!-- Right navbar links -->
-  
-  </nav>
+  <?php include '../components/topbar.php'; ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -89,189 +56,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"><?php echo $_SESSION['username']; ?></a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="./index.php" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-           
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Membership
-              
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-header">EMPLOYEES</li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Loaders 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Loaders List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Loader</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Drivers 
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Drivers List</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Drivers Offenses</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register New Driver</p>
-                </a>
-              </li>
-             
-            </ul>
-            
-          </li>
-          
- 
-          
-          <li class="nav-header">TRANSPORT</li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Goods Transported
-              
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 Transport Orders
-              
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-header">VEHICLES</li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                All Vehicles
-              
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 Expenses
-              
-              </p>
-            </a>
-          </li>
-        
-          <li class="nav-header">FINANCE</li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                All Expense
-              
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                 All Revenue
-              
-              </p>
-            </a>
-          </li>
-        
-          <li class="nav-header">USER</li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Account
-              
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-          <a href="index.php?logout='1'" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-            logout
-              </p>
-            </a>
-          </li>
- 
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
+    <?php include '../components/sidebar.php'; ?>
     <!-- /.sidebar -->
   </aside>
 
@@ -288,7 +73,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             
-              <li class="breadcrumb-item active">Loader</li>
+              <li class="breadcrumb-item active">Driver</li>
             </ol>
           </div>
         </div>
@@ -306,17 +91,35 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
-                <div class="card-body">
+              <form action="new_loader.php" method="post">
+              <?php include('../errors.php'); ?>
+              <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Loader Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
+                    <label for="loaderName">Loader Name</label>
+                    <input type="text" class="form-control" id="loaderName" name="loaderName" placeholder="Enter Name">
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Assign Vehicle</label>
+
+                    <select id="club" class="form-control" name="vehicle_pk">
+          <option value = ""></option>
+        <?php
+        $result = mysqli_query($db,"select * from vehicle"); // fetch data from database
+
+          while($row = mysqli_fetch_array($result)) {
+            echo '<option value='.$row['vehicle_pk'].'>'.$row['vehicle_name'].'</option>';
+          }
+        ?> 
+        </select>
+
+               </div>
+
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="reg_loader">Register Loader</button>
+
                 </div>
               </form>
             </div>
