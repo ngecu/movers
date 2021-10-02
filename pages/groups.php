@@ -110,7 +110,7 @@ while($data = mysqli_fetch_array($records))
 {
 ?>
   <tr>
-    <td><?php echo $data['name']; ?></td>
+    <td><?php echo $data['group_name']; ?></td>
     <td><?php echo $data['location']; ?></td>
     <td><?php echo $data['nature_of_goods']; ?></td>
   </tr>	

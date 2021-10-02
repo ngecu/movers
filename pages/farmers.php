@@ -86,10 +86,11 @@
               <h3 class="card-title">Farmer List</h3>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
+            <div class="card-body projects">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th> </th>
                   <th>Name</th>
                   <th>Type</th>
                   <th>Group Name</th>
@@ -101,22 +102,39 @@
                 <?php
 
 
-$records = mysqli_query($db,"select * from farmer INNER JOIN groupp as groupp on groupp.group_pk = farmer.group_pk  "); // fetch data from database
+$records = mysqli_query($db,"select * from farmer INNER JOIN groupp as groupp on farmer.group_pk = groupp.group_pk  "); // fetch data from database
 // select * from driver INNER JOIN vehicle AS vehicle ON vehicle.vehicle_pk = driver.vehicle_pk
 
 while($data = mysqli_fetch_array($records))
 {
 ?>
   <tr>
+  <td>
+                  <ul class="list-inline">
+                            
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="../dist/img/avatar04.png">
+                              </li>
+                          </ul>
+                         </td>
+
     <td><?php echo $data['namr']; ?></td>
-    <td><?php echo $data['farmer_type']; ?></td>
-    <td><?php echo $data['name']; ?></td>
+    <td><?php  
+          if ($data['farmer_type'] = 0) {
+            echo '<div class="badge badge-success">Large Scale</div>';
+          } 
+          else {
+            echo '<div class="badge badge-info">Small Scale</div>';
 
-    
-
-
-   
-
+          }  
+  ?></td>
+    <td><?php echo $data['group_name']; ?></td>
+    <td><button type="button" class="btn btn-danger btn-sm"data-toggle="modal" data-target="#modal-sm">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+</button>
+</td>
   </tr>	
 <?php
 }
@@ -125,6 +143,7 @@ while($data = mysqli_fetch_array($records))
                 </tbody>
                 <tfoot>
                 <tr>
+                <th> </th>
                 <th>Name</th>
                   <th>Vehicle Assigned</th>
                   <th>Amount paid per vehicle</th>
@@ -134,6 +153,26 @@ while($data = mysqli_fetch_array($records))
             </div>
             <!-- /.card-body -->
           </div>
+
+          <div class="modal fade" id="modal-sm">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete?&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Yes</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
 </section>
     <!-- /.content -->
   </div>

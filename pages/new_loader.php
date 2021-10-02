@@ -98,21 +98,7 @@
                     <label for="loaderName">Loader Name</label>
                     <input type="text" class="form-control" id="loaderName" name="loaderName" placeholder="Enter Name">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Assign Vehicle</label>
-
-                    <select id="club" class="form-control" name="vehicle_pk">
-          <option value = ""></option>
-        <?php
-        $result = mysqli_query($db,"select * from vehicle"); // fetch data from database
-
-          while($row = mysqli_fetch_array($result)) {
-            echo '<option value='.$row['vehicle_pk'].'>'.$row['vehicle_name'].'</option>';
-          }
-        ?> 
-        </select>
-
-               </div>
+                
 
                 </div>
                 <!-- /.card-body -->

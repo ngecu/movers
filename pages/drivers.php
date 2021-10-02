@@ -106,28 +106,41 @@
                 <?php
 
 
-$records = mysqli_query($db,"select * from driver INNER JOIN vehicle AS vehicle ON vehicle.vehicle_pk = driver.vehicle_pk "); // fetch data from database
+$records = mysqli_query($db,"select  * from driver 
+INNER JOIN vehicle AS vehicle ON vehicle.vehicle_pk = driver.vehicle_pk
+INNER JOIN offence AS offence ON offence.driver_pk = driver.driver_pk
+"); // fetch data from database
 
+$offence_count = mysqli_query($db,"select * from offence  ");
 
-$sql = "SELECT * FROM object INNER JOIN formulation ON object.formulation_fk = formulation.id";
 while($data = mysqli_fetch_array($records))
 {
 ?>
   <tr>
     <td><?php echo $data['name']; ?></td>
-    <td><?php echo $data['status']; ?></td>
+    <td><?php 
+              if ((foo($data['driver_pk']) >=3 && foo($data['driver_pk']) <6 )) {
+                echo '<div class="badge badge-warning">Warning</div>';
+              } 
+              elseif ((foo($data['driver_pk']) >=6 && foo($data['driver_pk']) <8 )) {
+                echo '<div class="badge badge-warning">2nd Warning</div>';
+              } 
+              elseif ((foo($data['driver_pk']) >9)) {
+                echo '<div class="badge badge-danger">Terminated</div>';
+              } 
+              else {
+                echo '<div class="badge badge-success">Active</div>';
+    
+              } 
+     ?></td>
     <td><?php echo $data['vehicle_name']; ?></td>
     <td><?php echo $data['trip_driver_per_trip']; ?> Kshs</td>
-    <td><?php echo $data['offence_count']; ?></td>
-
-   
-
+    <td><?php echo foo($data['driver_pk']);?></td>
   </tr>	
 <?php
 }
 ?>
-              
-                
+                             
                 </tbody>
                 <tfoot>
                 <tr>

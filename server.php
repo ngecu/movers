@@ -11,6 +11,39 @@ $errors = array();
 $db = mysqli_connect('localhost', 'root', '', 'movers_db');
 
 
+
+
+function foo($arg_1)
+{
+  $db = mysqli_connect('localhost', 'root', '', 'movers_db');
+
+  
+$sql = "SELECT * FROM offence where driver_pk = '".$arg_1."'";
+
+if ($result=mysqli_query($db,$sql)) {
+    $rowcount=mysqli_num_rows($result);
+    return $rowcount;
+
+//     if ($rowcount = 3) {
+//       $sql ="UPDATE `driver` SET `status`='Warning',`offence_count`='".$rowcount."' WHERE driver_pk = '".$arg_1."'";
+//       if(mysqli_query($db, $sql)){          
+// }
+// }
+// if ($rowcount = 6) {
+//   $sql ="UPDATE `driver` SET `status`='2nd Warning',`offence_count`='".$rowcount."' WHERE driver_pk = '".$arg_1."'";
+//   if(mysqli_query($db, $sql)){
+// }
+// }
+// if ($rowcount = 7) {
+//   $sql ="UPDATE `driver` SET `status`='Terminated',`offence_count`='".$rowcount."' WHERE driver_pk = '".$arg_1."'";
+//   if(mysqli_query($db, $sql)){
+// }
+// }
+}
+}
+
+
+
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
@@ -157,7 +190,10 @@ if (isset($_POST['reg_farmer'])) {
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($farmer_name)) { array_push($errors, "Driver Name is required"); }
-  if (empty($group_pk)) { array_push($errors, "Group is required"); }
+  if (empty($group_pk)) {
+    $group_pk=" ";
+  };
+  // if (empty($group_pk)) { $group_pk=" " }
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
@@ -186,14 +222,14 @@ if (isset($_POST['reg_farmer'])) {
 if (isset($_POST['reg_loader'])) {
   // receive all input values from the form
   $loader_name = mysqli_real_escape_string($db, $_POST['loaderName']);
-  $vehicle_pk = mysqli_real_escape_string($db, $_POST['vehicle_pk']);
+
 
 
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($loader_name)) { array_push($errors, "Loader Name is required"); }
-  if (empty($vehicle_pk)) { array_push($errors, "Vehicle is required"); }
+
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
@@ -209,12 +245,11 @@ if (isset($_POST['reg_loader'])) {
   if (count($errors) == 0) {
    
 
-      $query = "INSERT INTO loader (namr,vehicle_pk) 
-                VALUES('$loader_name','$vehicle_pk')";
+      $query = "INSERT INTO loader (namr) VALUES('$loader_name')";
       mysqli_query($db, $query);
       $_SESSION['loader'] = $loader_name;
       $_SESSION['success'] = "Added Successfully";
-      header('location: ./index.php');
+      header('location: ./loaders.php');
   }
 }
 

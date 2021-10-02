@@ -183,12 +183,12 @@
             </a>
           </li>
         
-          <li class="nav-header">FINANCE</li>
+          <li class="nav-header">HR</li>
           <li class="nav-item">
             <a href="./expenses.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                All Expense
+                Sales
               
               </p>
             </a>
@@ -197,7 +197,15 @@
             <a href="./revenue.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                 All Revenue
+                Pay Slips
+              
+              </p>
+            </a>
+
+            <a href="./revenue.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Taxes
               
               </p>
             </a>
