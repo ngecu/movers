@@ -106,7 +106,7 @@
                 <?php
 
 
-$records = mysqli_query($db,"select  * from driver 
+$records = mysqli_query($db,"select distinct  * from driver 
 INNER JOIN vehicle AS vehicle ON vehicle.vehicle_pk = driver.vehicle_pk
 INNER JOIN offence AS offence ON offence.driver_pk = driver.driver_pk
 "); // fetch data from database
