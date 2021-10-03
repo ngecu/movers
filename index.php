@@ -3,12 +3,12 @@
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
-  	header('location: ../login.php');
+  	header('location: ./login.php');
   }
   if (isset($_GET['logout'])) {
   	session_destroy();
   	unset($_SESSION['username']);
-  	header("location: ../login.php");
+  	header("location: ./login.php");
   }
 ?>
 
@@ -24,11 +24,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="./plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="./dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -36,33 +36,33 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="./plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="./plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="../plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="./plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="./dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="./plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="./plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="./plugins/summernote/summernote-bs4.css">
 
 </head>
 <body class="hold-transition sidebar-mini layout-boxed">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-  <?php include '../components/topbar.php'; ?>
+  <?php include './components/topbar.php'; ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../index3.html" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png"
+      <img src="./dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -70,7 +70,7 @@
     </a>
 
     <!-- Sidebar -->
-    <?php include '../components/sidebar.php'; ?>
+    <?php include './components/sidebar.php'; ?>
     <!-- /.sidebar -->
   </aside>
 
@@ -202,7 +202,7 @@
         <div class="-lg-4 col-4" >
 
         <div class="card" >
-  <img class="card-img-top" style="height:200px" src="..\resources\undraw_financial_data_es63.png" alt="Card image cap">
+  <img class="card-img-top" style="height:200px" src=".\resources\undraw_financial_data_es63.png" alt="Card image cap">
   <div class="card-body">
     <p class="card-text">Compnay Finance</p>
   </div>
@@ -213,7 +213,7 @@
         <div class="-lg-4 col-4">
 
 <div class="card">
-<img class="card-img-top" style="height:200px" src="..\resources\undraw_by_my_car_ttge.png" alt="Card image cap">
+<img class="card-img-top" style="height:200px" src=".\resources\undraw_by_my_car_ttge.png" alt="Card image cap">
 <div class="card-body">
 <p class="card-text">Company Drivers</p>
 </div>
@@ -224,7 +224,7 @@
 <div class="-lg-4 col-4">
 
 <div class="card">
-<img class="card-img-top" style="height:200px" src="..\resources\undraw_Team_page_re_cffb.png" alt="Card image cap">
+<img class="card-img-top" style="height:200px" src=".\resources\undraw_Team_page_re_cffb.png" alt="Card image cap">
 <div class="card-body">
 <p class="card-text">Goup Membership</p>
 </div>
@@ -261,13 +261,13 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../plugins/jquery/jquery.min.js"></script>
+<script src="./plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/adminlte.min.js"></script>
+<script src="./dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
+<script src="./dist/js/demo.js"></script>
 
 <script>
   var today = new Date();
