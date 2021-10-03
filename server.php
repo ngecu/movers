@@ -375,8 +375,8 @@ if (isset($_POST['login_user'])) {
         $results = mysqli_query($db, $query);
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
-          $_SESSION['success'] = "You are now logged in";
-          header('location: ./index.php');
+          $_SESSION['success'] = "You are now logged in";          
+          header("Location: https://moversltd.herokuapp.com/index.php");
         }else {
             array_push($errors, "Wrong username/password combination");
         }
