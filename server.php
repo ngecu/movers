@@ -86,7 +86,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: pages/index.php');
+  	header('location: ../index.php');
   }
 }
 
@@ -214,7 +214,7 @@ if (isset($_POST['reg_farmer'])) {
       mysqli_query($db, $query);
       $_SESSION['driver'] = $farmer_name;
       $_SESSION['success'] = "Added Successfully";
-      header('location: index.php');
+      header('location: ../index.php');
   }
 }
 
@@ -281,7 +281,7 @@ if (isset($_POST['reg_order'])) {
       $_SESSION['order'] = $farmer_pk;
       $_SESSION['success'] = "Added Successfully";
       // echo "loader pk is".$loader_pk;
-      header('location: ./index.php');
+      header('location: ../index.php');
   }
 }
 
@@ -310,7 +310,7 @@ if (isset($_POST['reg_offence'])) {
       $_SESSION['order'] = $driver_pk;
       $_SESSION['success'] = "Added Successfully";
       // echo "loader pk is".$loader_pk;
-      header('location: ./index.php');
+      header('location: ../index.php');
   }
 }
 // REGISTER GROUP
@@ -350,7 +350,7 @@ if (isset($_POST['reg_group'])) {
       $_SESSION['group'] = $group_name;
       $_SESSION['success'] = "Added Successfully";
       // echo 'Name '.$group_name .' Location:'.$group_location. ' Nature '.$nature_of_goods;
-      header('location: index.php');
+      header('location: ../index.php');
   }
 }
 
@@ -376,7 +376,7 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
-          header('location: pages/index.php');
+          header('location: ../index.php');
         }else {
             array_push($errors, "Wrong username/password combination");
         }
