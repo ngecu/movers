@@ -1,4 +1,5 @@
 
+
 <?php
 session_start();
 
@@ -272,12 +273,26 @@ if (isset($_POST['reg_order'])) {
   
   // Finally, register vehicle if there are no errors in the form
   if (count($errors) == 0) {
+
+    $i = 0;
+    $selectedOptionCount = count($_POST['loader_pk']);
+    $selectedOption = "";
+
+    while($i < selectedOptionCount){
+      $selectedOption = $selectedOption . "'" .$_POST['loader_pk'][$i] . "'";
+      if($i < $selectedOptionCount - 1){
+        $selectedOption = $selectedOption . ", ";
+      }
+      $query = "INSERT INTO order_transport (farmer_pk,group_pk,driver_pk,loader_pk) 
+      VALUES('$farmer_pk','$group_pk','$driver_pk','$selectedOption')";
+      mysqli_query($db, $query);
+      $i ++;
+    }
+
    
 
-      $query = "INSERT INTO order_transport (farmer_pk,group_pk,driver_pk,loader_pk) 
-                VALUES('$farmer_pk','$group_pk','$driver_pk','$loader_pk')";
 
-      mysqli_query($db, $query);
+
       $_SESSION['order'] = $farmer_pk;
       $_SESSION['success'] = "Added Successfully";
       // echo "loader pk is".$loader_pk;
@@ -376,7 +391,7 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";          
-          header("Location: https://moversltd.herokuapp.com/index.php");
+          header("Location: ./index.php");
         }else {
             array_push($errors, "Wrong username/password combination");
         }

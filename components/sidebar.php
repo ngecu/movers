@@ -2,7 +2,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo $_SESSION['username']; ?></a>
@@ -46,13 +46,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./pages/loaders.php" class="nav-link">
+                <a href="./loaders.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Loaders List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/new_loader.php" class="nav-link">
+                <a href="./new_loader.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Register New Loader</p>
                 </a>
@@ -72,13 +72,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./pages/farmers.php" class="nav-link">
+                <a href="./farmers.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Farmer List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/new_farmer.php" class="nav-link">
+                <a href="./new_farmer.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Register New Farmer</p>
                 </a>
@@ -99,19 +99,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./pages/drivers.php" class="nav-link">
+                <a href="./drivers.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Drivers List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/driver_offences.php" class="nav-link">
+                <a href="./driver_offences.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Drivers Offenses</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/new_driver.php" class="nav-link">
+                <a href="./new_driver.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Register New Driver</p>
                 </a>
@@ -132,13 +132,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./pages/groups.php" class="nav-link">
+                <a href="./groups.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Group List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./pages/new_group.php" class="nav-link">
+                <a href="./new_group.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Register New Group</p>
                 </a>
@@ -154,7 +154,7 @@
           <li class="nav-header">TRANSPORT</li>
         
           <li class="nav-item">
-            <a href="./pages/transport_orders.php" class="nav-link">
+            <a href="./transport_orders.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Order Transport
@@ -165,7 +165,7 @@
 
           <li class="nav-header">VEHICLES</li>
           <li class="nav-item">
-            <a href="./pages/vehicles.php" class="nav-link">
+            <a href="./vehicles.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 All Vehicles
@@ -174,7 +174,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="./pages/new_vehicle.php" class="nav-link">
+            <a href="./new_vehicle.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                  Add Vehicle
@@ -185,7 +185,7 @@
         
           <li class="nav-header">HR</li>
           <li class="nav-item">
-            <a href="./pages/expenses.php" class="nav-link">
+            <a href="./expenses.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sales
@@ -194,7 +194,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="./pages/revenue.php" class="nav-link">
+            <a href="./revenue.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Pay Slips
@@ -202,7 +202,7 @@
               </p>
             </a>
 
-            <a href="./pages/revenue.php" class="nav-link">
+            <a href="./revenue.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                Taxes

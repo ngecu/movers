@@ -30,9 +30,10 @@
             <span class="float-right text-muted text-sm">3 mins</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> Log Out
-            <span class="float-right text-muted text-sm">12 hours</span>
+          <a href="./index.php?logout='1'" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i>
+            Log Out
+            <!-- <span class="float-right text-muted text-sm">12 hours</span> -->
           </a>
 
         </div>
